@@ -27,17 +27,12 @@
   </nav>
 
   <div class="home-film-hero">
-
-    <!-- Video overlay — covers everything, fades out after 6s -->
     <div id="home-film-overlay">
       <video autoplay muted playsinline id="home-video">
         <source src="/assets/video/homepage-loop.mp4" type="video/mp4">
       </video>
-      <!-- Fallback gradient shown if no video file is present -->
       <div class="overlay-fallback" id="overlay-fallback"></div>
     </div>
-
-    <!-- Hero content — revealed after video fades -->
     <div id="home-hero-content">
       <h1 class="film-content-h1">Family heirlooms, <em>shot on film.</em></h1>
       <div class="film-contrast">Not highlights. Not content. <em>Something real.</em></div>
@@ -47,7 +42,6 @@
       </div>
       <div class="hero-tagline">Make these feelings last.</div>
     </div>
-
   </div>
 
   <footer>
@@ -74,30 +68,37 @@
     var content = document.getElementById('home-hero-content');
     var footer  = document.querySelector('#page-home footer');
     var video   = document.getElementById('home-video');
-    var fallback = document.getElementById('overlay-fallback');
-
-    // If video loads successfully, hide the fallback gradient
-    video.addEventListener('canplay', function() {
-      fallback.style.display = 'none';
-    });
-
-    // If video fails to load (file not yet in place), treat it like no video
-    video.addEventListener('error', function() {
-      fallback.style.display = 'block';
-      video.style.display = 'none';
-    });
+    var videoLoaded = false;
 
     function revealContent() {
       overlay.classList.add('faded');
-      // Reveal hero content and footer after overlay starts fading
       setTimeout(function() {
         content.classList.add('revealed');
         footer.classList.add('revealed');
       }, 400);
     }
 
-    // Wait 6s then fade out overlay (video or fallback)
-    setTimeout(revealContent, 6000);
+    function revealImmediately() {
+      overlay.style.display = 'none';
+      content.classList.add('revealed');
+      footer.classList.add('revealed');
+    }
+
+    video.addEventListener('canplay', function() {
+      if (!videoLoaded) {
+        videoLoaded = true;
+        setTimeout(revealContent, 6000);
+      }
+    });
+
+    video.addEventListener('error', function() {
+      revealImmediately();
+    });
+
+    // Safety net: if no video event within 1.5s, reveal immediately
+    setTimeout(function() {
+      if (!videoLoaded) revealImmediately();
+    }, 1500);
 
   })();
 </script>
