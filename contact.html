@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get in Touch — Mason Jar Films</title>
+  <meta name="description" content="Commission a Super 8mm wedding film. Mason Jar Films takes on twelve commissions each year. Commissions begin at $9,500.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+
+<div id="page-contact">
+
+  <nav class="nav">
+    <a href="/" class="nav-logo">
+      <img src="/assets/logos/mjf-logo-horizontal.svg" alt="Mason Jar Films" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span style="display:none;font-family:'Libre Baskerville',Georgia,serif;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(28,18,10,0.55);">Mason Jar Films</span>
+    </a>
+    <div class="nav-links">
+      <a href="/films">Films</a>
+      <a href="/about">About</a>
+      <a href="/contact" class="nav-cta active">Get in Touch</a>
+    </div>
+  </nav>
+
+  <div class="contact-main">
+
+    <!-- LEFT: Context -->
+    <div class="contact-context-col">
+      <div>
+        <div class="contact-headline">Let's make these<br><em>feelings last.</em></div>
+        <p class="contact-body">Fill out the form and I'll be in touch. No pressure, no pitch — just a conversation about your family and what you're hoping to hold onto.</p>
+      </div>
+      <div class="avail-block">
+        <div class="avail-label">Availability</div>
+        <div class="avail-text">Mason Jar Films takes on<br>twelve commissions each year.<br><em>Lock yours in today.</em></div>
+        <div class="avail-price">Commissions begin at $9,500</div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Form -->
+    <div class="contact-form-col">
+
+      <!-- FORM — Netlify Forms -->
+      <form
+        id="contact-form"
+        name="contact"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        onsubmit="handleSubmit(event)"
+      >
+        <!-- Netlify hidden fields -->
+        <input type="hidden" name="form-name" value="contact">
+        <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="c-name">Your Name</label>
+            <input type="text" id="c-name" name="name" placeholder="First and last" required>
+          </div>
+          <div class="form-group">
+            <label for="c-email">Email Address</label>
+            <input type="email" id="c-email" name="email" placeholder="you@email.com" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="c-date">Wedding Date</label>
+            <input type="date" id="c-date" name="wedding-date">
+            <label class="no-date" for="c-nodate">
+              <input type="checkbox" id="c-nodate" name="no-date-set" onchange="toggleDate(this)">
+              <span>We haven't set a date yet</span>
+            </label>
+          </div>
+          <div class="form-group">
+            <label for="c-role">Your Role</label>
+            <select id="c-role" name="role">
+              <option value="" disabled selected>Select one</option>
+              <option value="Bride">Bride</option>
+              <option value="Groom">Groom</option>
+              <option value="Event Planner">Event Planner</option>
+              <option value="Family or Friend of Couple">Family or Friend of Couple</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="c-msg">Anything you'd like to share <span style="opacity:0.5;text-transform:none;letter-spacing:0;">(optional)</span></label>
+          <textarea id="c-msg" name="message" placeholder="Tell me a little about your wedding, your family, or what drew you to Super 8mm film…"></textarea>
+        </div>
+
+        <div class="form-footer">
+          <button type="submit" class="btn-submit">Send →</button>
+          <div class="form-note">I respond to every inquiry personally, usually same day.</div>
+        </div>
+
+        <div class="commission-note">
+          Ready to lock in your date? <a href="/contact">Book Your Date →</a>
+        </div>
+
+      </form>
+
+      <!-- CONFIRMATION — shown after submit -->
+      <div id="contact-confirmation" class="form-confirmation">
+        <div class="confirmation-headline">Thank you, <em>truly.</em></div>
+        <div class="confirmation-body">Your message is on its way.<br>I'll be in touch personally — usually same day.</div>
+        <div class="confirmation-sig">— Chris P. Jones</div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="footer-left">
+      <img src="/assets/logos/mjf-monogram.svg" alt="" class="footer-monogram" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span style="display:none;font-family:'Libre Baskerville',Georgia,serif;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(28,18,10,0.3);">MJF</span>
+      <span class="footer-copy">© 2026</span>
+    </div>
+    <a href="https://instagram.com/masonjarfilms" target="_blank" rel="noopener" class="instagram-link">
+      <svg class="instagram-icon" width="14" height="14" viewBox="0 0 24 24" fill="none">
+        <rect x="2" y="2" width="20" height="20" rx="5" stroke="#1c120a" stroke-width="1.5"/>
+        <circle cx="12" cy="12" r="4.5" stroke="#1c120a" stroke-width="1.5"/>
+        <circle cx="17.5" cy="6.5" r="1" fill="#1c120a"/>
+      </svg>
+      masonjarfilms
+    </a>
+  </footer>
+
+</div>
+
+<script>
+  function toggleDate(checkbox) {
+    var dateInput = document.getElementById('c-date');
+    dateInput.disabled = checkbox.checked;
+    if (checkbox.checked) dateInput.value = '';
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    var form = document.getElementById('contact-form');
+    var name = document.getElementById('c-name').value.trim();
+    var email = document.getElementById('c-email').value.trim();
+    if (!name || !email) return;
+
+    // Submit to Netlify
+    var formData = new FormData(form);
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(formData).toString()
+    })
+    .then(function() {
+      form.style.display = 'none';
+      document.getElementById('contact-confirmation').classList.add('visible');
+    })
+    .catch(function() {
+      // Fallback: show confirmation anyway (form may have submitted via normal POST)
+      form.style.display = 'none';
+      document.getElementById('contact-confirmation').classList.add('visible');
+    });
+  }
+</script>
+
+</body>
+</html>

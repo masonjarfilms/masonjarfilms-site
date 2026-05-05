@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mason Jar Films — Super 8mm Wedding Films</title>
+  <meta name="description" content="Super 8mm wedding films for couples who want something real. Austin, Texas. Commissions begin at $9,500.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+
+<div id="page-home">
+
+  <nav class="nav">
+    <a href="/" class="nav-logo">
+      <img src="/assets/logos/mjf-logo-horizontal.svg" alt="Mason Jar Films" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span style="display:none;font-family:'Libre Baskerville',Georgia,serif;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(28,18,10,0.55);">Mason Jar Films</span>
+    </a>
+    <div class="nav-links">
+      <a href="/films">Films</a>
+      <a href="/about">About</a>
+      <a href="/contact" class="nav-cta">Get in Touch</a>
+    </div>
+  </nav>
+
+  <div class="home-film-hero">
+
+    <!-- Video overlay — covers everything, fades out after 6s -->
+    <div id="home-film-overlay">
+      <video autoplay muted playsinline id="home-video">
+        <source src="/assets/video/homepage-loop.mp4" type="video/mp4">
+      </video>
+      <!-- Fallback gradient shown if no video file is present -->
+      <div class="overlay-fallback" id="overlay-fallback"></div>
+    </div>
+
+    <!-- Hero content — revealed after video fades -->
+    <div id="home-hero-content">
+      <h1 class="film-content-h1">Family heirlooms, <em>shot on film.</em></h1>
+      <div class="film-contrast">Not highlights. Not content. <em>Something real.</em></div>
+      <div class="home-cta-group">
+        <a href="/contact" class="btn-film">Get in Touch →</a>
+        <a href="/films" class="btn-film-ghost">Watch a Film →</a>
+      </div>
+      <div class="hero-tagline">Make these feelings last.</div>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="footer-left">
+      <img src="/assets/logos/mjf-monogram.svg" alt="" class="footer-monogram" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span style="display:none;font-family:'Libre Baskerville',Georgia,serif;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(28,18,10,0.3);">MJF</span>
+      <span class="footer-copy">© 2026</span>
+    </div>
+    <a href="https://instagram.com/masonjarfilms" target="_blank" rel="noopener" class="instagram-link">
+      <svg class="instagram-icon" width="14" height="14" viewBox="0 0 24 24" fill="none">
+        <rect x="2" y="2" width="20" height="20" rx="5" stroke="#1c120a" stroke-width="1.5"/>
+        <circle cx="12" cy="12" r="4.5" stroke="#1c120a" stroke-width="1.5"/>
+        <circle cx="17.5" cy="6.5" r="1" fill="#1c120a"/>
+      </svg>
+      masonjarfilms
+    </a>
+  </footer>
+
+</div>
+
+<script>
+  (function() {
+    var overlay = document.getElementById('home-film-overlay');
+    var content = document.getElementById('home-hero-content');
+    var footer  = document.querySelector('#page-home footer');
+    var video   = document.getElementById('home-video');
+    var fallback = document.getElementById('overlay-fallback');
+
+    // If video loads successfully, hide the fallback gradient
+    video.addEventListener('canplay', function() {
+      fallback.style.display = 'none';
+    });
+
+    // If video fails to load (file not yet in place), treat it like no video
+    video.addEventListener('error', function() {
+      fallback.style.display = 'block';
+      video.style.display = 'none';
+    });
+
+    function revealContent() {
+      overlay.classList.add('faded');
+      // Reveal hero content and footer after overlay starts fading
+      setTimeout(function() {
+        content.classList.add('revealed');
+        footer.classList.add('revealed');
+      }, 400);
+    }
+
+    // Wait 6s then fade out overlay (video or fallback)
+    setTimeout(revealContent, 6000);
+
+  })();
+</script>
+
+</body>
+</html>

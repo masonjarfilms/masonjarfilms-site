@@ -1,0 +1,36 @@
+@font-face {
+    font-family: 'Delicious';
+    src: url('Delicious-BoldItalic.woff2') format('woff2'),
+        url('Delicious-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Delicious';
+    src: url('Delicious-Bold.woff2') format('woff2'),
+        url('Delicious-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Delicious';
+    src: url('Delicious-Italic.woff2') format('woff2'),
+        url('Delicious-Italic.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Delicious';
+    src: url('Delicious-Roman.woff2') format('woff2'),
+        url('Delicious-Roman.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
