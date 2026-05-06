@@ -27,12 +27,9 @@
   </nav>
 
   <div class="home-film-hero">
-    <div id="home-film-overlay">
-      <video autoplay muted playsinline id="home-video">
-        <source src="/assets/video/homepage-loop.mp4" type="video/mp4">
-      </video>
-      <div class="overlay-fallback" id="overlay-fallback"></div>
-    </div>
+    <!-- Dark film backdrop -->
+    <div class="overlay-fallback"></div>
+    <!-- Hero content -->
     <div id="home-hero-content">
       <h1 class="film-content-h1">Family heirlooms, <em>shot on film.</em></h1>
       <div class="film-contrast">Not highlights. Not content. <em>Something real.</em></div>
@@ -61,40 +58,6 @@
   </footer>
 
 </div>
-
-<script>
-  (function() {
-    var overlay = document.getElementById('home-film-overlay');
-    var content = document.getElementById('home-hero-content');
-    var footer  = document.querySelector('#page-home footer');
-    var video   = document.getElementById('home-video');
-    var videoLoaded = false;
-
-    function revealContent() {
-      overlay.classList.add('faded');
-      setTimeout(function() {
-        content.classList.remove('hidden');
-        footer.classList.remove('hidden');
-      }, 400);
-    }
-
-    // Only hide content if video actually loads, then reveal after 6s
-    video.addEventListener('canplay', function() {
-      if (!videoLoaded) {
-        videoLoaded = true;
-        content.classList.add('hidden');
-        footer.classList.add('hidden');
-        setTimeout(revealContent, 6000);
-      }
-    });
-
-    // Video failed — content already visible, just hide overlay
-    video.addEventListener('error', function() {
-      overlay.style.display = 'none';
-    });
-
-  })();
-</script>
 
 </body>
 </html>

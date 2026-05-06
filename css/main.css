@@ -247,20 +247,21 @@ footer {
   height: 100%;
   object-fit: cover;
 }
-/* Fallback gradient shown when no video file yet */
-#home-film-overlay .overlay-fallback {
+/* Dark film backdrop for hero */
+.overlay-fallback {
   position: absolute;
   inset: 0;
+  z-index: 1;
   background: #1a120a;
 }
-#home-film-overlay .overlay-fallback::before {
+.overlay-fallback::before {
   content: '';
   position: absolute; inset: 0;
   background:
     radial-gradient(ellipse at 28% 55%, rgba(190,150,80,0.35) 0%, transparent 52%),
     radial-gradient(ellipse at 72% 32%, rgba(155,118,60,0.22) 0%, transparent 48%);
 }
-#home-film-overlay .overlay-fallback::after {
+.overlay-fallback::after {
   content: '';
   position: absolute; inset: 0; opacity: 0.18;
   background-image: repeating-linear-gradient(
@@ -268,15 +269,12 @@ footer {
     rgba(255,248,230,0.05) 2px, rgba(255,248,230,0.05) 3px
   );
 }
-#home-film-overlay.faded {
-  opacity: 0;
-  pointer-events: none;
-}
 
 /* Hero content — hidden until overlay fades */
 #home-hero-content {
   position: absolute;
   inset: 0;
+  z-index: 5;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -284,10 +282,7 @@ footer {
   text-align: center;
   padding: 0 var(--pad);
   opacity: 1;
-  transition: opacity 1s ease-out;
 }
-#home-hero-content.revealed { opacity: 1; }
-#home-hero-content.hidden { opacity: 0; }
 
 .film-content-h1 {
   font-size: 58px;
@@ -362,10 +357,7 @@ footer {
 }
 #page-home footer {
   opacity: 1;
-  transition: opacity 1s ease-out;
 }
-#page-home footer.revealed { opacity: 1; }
-#page-home footer.hidden { opacity: 0; }
 
 
 /* ============================================================
