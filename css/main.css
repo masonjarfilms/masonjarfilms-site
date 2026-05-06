@@ -4,47 +4,7 @@
 ============================================================ */
 
 /* ---- FONTS ---- */
-@font-face {
-  font-family: 'Delicious';
-  src: url('/fonts/Delicious-Roman.woff2') format('woff2'),
-       url('/fonts/Delicious-Roman.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Delicious';
-  src: url('/fonts/Delicious-Italic.woff2') format('woff2'),
-       url('/fonts/Delicious-Italic.woff') format('woff');
-  font-weight: 500;
-  font-style: italic;
-  font-display: swap;
-}
-/* Also map italic to weight 400 (normal) for default italic usage */
-@font-face {
-  font-family: 'Delicious';
-  src: url('/fonts/Delicious-Italic.woff2') format('woff2'),
-       url('/fonts/Delicious-Italic.woff') format('woff');
-  font-weight: normal;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Delicious';
-  src: url('/fonts/Delicious-Bold.woff2') format('woff2'),
-       url('/fonts/Delicious-Bold.woff') format('woff');
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Delicious';
-  src: url('/fonts/Delicious-BoldItalic.woff2') format('woff2'),
-       url('/fonts/Delicious-BoldItalic.woff') format('woff');
-  font-weight: bold;
-  font-style: italic;
-  font-display: swap;
-}
+/* Font-face declarations are loaded from /fonts/stylesheet.css via the HTML head */
 
 /* ---- TOKENS ---- */
 :root {
