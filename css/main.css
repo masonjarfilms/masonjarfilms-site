@@ -24,7 +24,7 @@
 html, body { height: 100%; }
 body {
   background: var(--bg);
-  font-family: 'Delicious', 'Libre Baskerville', Georgia, serif;
+  font-family: 'Libre Baskerville', Georgia, serif;
   font-weight: 400;
   color: var(--ink);
   -webkit-font-smoothing: antialiased;
@@ -723,7 +723,7 @@ textarea {
   border: none;
   border-bottom: 0.5px solid rgba(28,18,10,0.2);
   padding: 8px 0 10px;
-  font-family: 'Delicious', 'Libre Baskerville', Georgia, serif;
+  font-family: 'Libre Baskerville', Georgia, serif;
   font-size: 15px;
   color: var(--ink);
   outline: none;
