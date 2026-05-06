@@ -283,10 +283,11 @@ footer {
   justify-content: center;
   text-align: center;
   padding: 0 var(--pad);
-  opacity: 0;
+  opacity: 1;
   transition: opacity 1s ease-out;
 }
 #home-hero-content.revealed { opacity: 1; }
+#home-hero-content.hidden { opacity: 0; }
 
 .film-content-h1 {
   font-size: 58px;
@@ -360,10 +361,11 @@ footer {
   min-height: 100vh;
 }
 #page-home footer {
-  opacity: 0;
+  opacity: 1;
   transition: opacity 1s ease-out;
 }
 #page-home footer.revealed { opacity: 1; }
+#page-home footer.hidden { opacity: 0; }
 
 
 /* ============================================================
