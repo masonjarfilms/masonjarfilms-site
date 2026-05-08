@@ -73,10 +73,12 @@
     var video = document.getElementById('home-video');
 
     video.addEventListener('canplay', function() {
-      // Fade out after 6 seconds
+      // Fade in over 1 second
+      videoOverlay.classList.add('fadein');
+      // Fade out after 9 seconds
       setTimeout(function() {
         videoOverlay.classList.add('faded');
-      }, 6000);
+      }, 9000);
     });
 
     video.addEventListener('error', function() {
