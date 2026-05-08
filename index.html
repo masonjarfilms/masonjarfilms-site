@@ -27,8 +27,16 @@
   </nav>
 
   <div class="home-film-hero">
-    <!-- Dark film backdrop -->
+    <!-- Dark backdrop (always behind the video) -->
     <div class="overlay-fallback"></div>
+
+    <!-- Video overlay — sits on top, fades out after 8s -->
+    <div id="video-overlay">
+      <video autoplay muted playsinline id="home-video">
+        <source src="/assets/video/homepage-loop.mp4" type="video/mp4">
+      </video>
+    </div>
+
     <!-- Hero content -->
     <div id="home-hero-content">
       <h1 class="film-content-h1">Family heirlooms, <em>shot on film.</em></h1>
@@ -58,6 +66,25 @@
   </footer>
 
 </div>
+
+<script>
+  (function() {
+    var videoOverlay = document.getElementById('video-overlay');
+    var video = document.getElementById('home-video');
+
+    video.addEventListener('canplay', function() {
+      // Fade out after 6 seconds
+      setTimeout(function() {
+        videoOverlay.classList.add('faded');
+      }, 6000);
+    });
+
+    video.addEventListener('error', function() {
+      // No video file — just remove overlay so content shows
+      videoOverlay.style.display = 'none';
+    });
+  })();
+</script>
 
 </body>
 </html>
