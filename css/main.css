@@ -243,14 +243,14 @@ footer {
   );
 }
 
-/* Video overlay — sits above content, fades in then out */
+/* Video overlay — sits above content, fades out at end */
 #video-overlay {
   position: absolute;
   inset: 0;
   z-index: 10;
   background: #1a120a;
-  opacity: 0;
-  transition: opacity 1s ease-in;
+  opacity: 1;
+  transition: opacity 2s ease-out;
 }
 #video-overlay video {
   position: absolute;
@@ -259,12 +259,8 @@ footer {
   height: 100%;
   object-fit: cover;
 }
-#video-overlay.fadein {
-  opacity: 1;
-}
 #video-overlay.faded {
   opacity: 0;
-  transition: opacity 2s ease-out;
   pointer-events: none;
 }
 

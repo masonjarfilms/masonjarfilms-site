@@ -73,8 +73,6 @@
     var video = document.getElementById('home-video');
 
     video.addEventListener('canplay', function() {
-      // Fade in over 1 second
-      videoOverlay.classList.add('fadein');
       // Fade out after 9 seconds
       setTimeout(function() {
         videoOverlay.classList.add('faded');
