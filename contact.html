@@ -44,18 +44,16 @@
     <!-- RIGHT: Form -->
     <div class="contact-form-col">
 
-      <!-- FORM — Netlify Forms -->
+      <!-- FORM — Formspree -->
       <form
         id="contact-form"
-        name="contact"
+        action="https://formspree.io/f/mojbwzgl"
         method="POST"
-        data-netlify="true"
-        netlify-honeypot="bot-field"
         onsubmit="handleSubmit(event)"
       >
-        <!-- Netlify hidden fields -->
-        <input type="hidden" name="form-name" value="contact">
-        <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
+        <!-- Honeypot spam protection -->
+        <input type="text" name="_gotcha" style="display:none;">
+        <input type="hidden" name="_subject" value="New inquiry — Mason Jar Films">
 
         <div class="form-row">
           <div class="form-group">
@@ -148,12 +146,12 @@
     var email = document.getElementById('c-email').value.trim();
     if (!name || !email) return;
 
-    // Submit to Netlify
+    // Submit to Formspree
     var formData = new FormData(form);
-    fetch('/', {
+    fetch('https://formspree.io/f/mojbwzgl', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(formData).toString()
+      body: formData,
+      headers: { 'Accept': 'application/json' }
     })
     .then(function() {
       form.style.display = 'none';
