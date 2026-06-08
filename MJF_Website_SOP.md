@@ -50,6 +50,12 @@ No build process. No command line required for most tasks.
 3. Drop into `masonjarfilms/assets/video/` — replace existing file
 4. Commit and push via GitHub Desktop
 
+**Confirmed export settings (HandBrake — tested and approved June 2026):**
+- Preset: General → Fast 1080p30
+- RF slider: 24
+- Result: ~8.4MB at 1080p — good quality/size balance
+- Do not go below RF 22 (too large) or above RF 28 (too compressed/low quality)
+
 **To test locally without deploying:**
 ```
 cd ~/Business/Mason\ Jar/Website\ 2026/masonjarfilms
