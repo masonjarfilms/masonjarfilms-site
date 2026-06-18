@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mary &amp; Nick / Megan &amp; Tim</title>
+<meta name="robots" content="noindex">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400&display=swap');
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cream:      #F5F0E8;
+    --ink:        #1A1714;
+    --warm-gold:  #C4913F;
+    --rule:       rgba(107, 90, 71, 0.25);
+  }
+  html { font-size: 16px; background-color: var(--ink); color: var(--cream); }
+  body {
+    font-family: "Jost", sans-serif;
+    font-weight: 300;
+    background: var(--ink);
+    min-height: 100vh;
+    padding: 0;
+  }
+
+  .page-wrap {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0.8rem 1.25rem 2.5rem;
+  }
+
+  .comparison-block { margin-bottom: 2.25rem; }
+  .comparison-block:last-of-type { margin-bottom: 0; }
+
+  .comparison-title {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-weight: 300;
+    font-size: clamp(1.8rem, 4vw, 2.55rem);
+    line-height: 1;
+    color: var(--cream);
+    text-align: center;
+    margin-bottom: 0.85rem;
+  }
+
+  .slider-wrap {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border: 1px solid var(--rule);
+    cursor: col-resize;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: none;
+  }
+  .slider-wrap-mary { aspect-ratio: 2556 / 1439; }
+  .slider-wrap-megan { aspect-ratio: 2508 / 1411; }
+  .slider-img { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .slider-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    pointer-events: none;
+  }
+  .slider-img-1080 { clip-path: inset(0 50% 0 0); }
+
+  .slider-handle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 44px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    z-index: 10;
+  }
+  .slider-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 1px;
+    background: rgba(196,145,63,0.8);
+    transform: translateX(-50%);
+  }
+  .slider-button {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--warm-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  }
+
+  .slider-label {
+    position: absolute;
+    bottom: 0.75rem;
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.85);
+    background: rgba(26,23,20,0.55);
+    padding: 0.25rem 0.6rem;
+    pointer-events: none;
+    z-index: 5;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+  .slider-label-left  { left: 0.75rem; }
+  .slider-label-right { right: 0.75rem; }
+
+  .slider-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 28px;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.9);
+    background: rgba(26,23,20,0.6);
+    padding: 0.35rem 0.85rem;
+    pointer-events: none;
+    z-index: 20;
+    white-space: nowrap;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    animation: hintPulse 1.8s ease-in-out infinite;
+  }
+  @keyframes hintPulse { 0%, 100% { opacity: 0.7; } 50% { opacity: 1; } }
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <section class="comparison-block">
+    <h1 class="comparison-title">Mary &amp; Nick</h1>
+    <div class="slider-wrap slider-wrap-mary" id="sw1">
+      <div class="slider-img"><img src="mary-upgraded-4k.png" alt="Mary and Nick Upgraded 4K"></div>
+      <div class="slider-img slider-img-1080" id="rv1"><img src="mary-original-1080p.png" alt="Mary and Nick Original 1080p"></div>
+      <div class="slider-handle" id="sh1"><div class="slider-line"></div><div class="slider-button"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M4 7H10M4 7L2 5M4 7L2 9M10 7L12 5M10 7L12 9" stroke="#1A1714" stroke-width="1.4" stroke-linecap="round"/></svg></div></div>
+      <div class="slider-label slider-label-left">Original &nbsp;&middot;&nbsp; 1080p</div>
+      <div class="slider-label slider-label-right">Upgraded &nbsp;&middot;&nbsp; 4K</div>
+      <div class="slider-hint" id="ht1">&#8596;&nbsp; Drag to compare</div>
+    </div>
+  </section>
+
+  <section class="comparison-block">
+    <h2 class="comparison-title">Megan &amp; Tim</h2>
+    <div class="slider-wrap slider-wrap-megan" id="sw2">
+      <div class="slider-img"><img src="megan-upgraded-4k.png" alt="Megan and Tim Upgraded 4K"></div>
+      <div class="slider-img slider-img-1080" id="rv2"><img src="megan-original-1080p.png" alt="Megan and Tim Original 1080p"></div>
+      <div class="slider-handle" id="sh2"><div class="slider-line"></div><div class="slider-button"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M4 7H10M4 7L2 5M4 7L2 9M10 7L12 5M10 7L12 9" stroke="#1A1714" stroke-width="1.4" stroke-linecap="round"/></svg></div></div>
+      <div class="slider-label slider-label-left">Original &nbsp;&middot;&nbsp; 1080p</div>
+      <div class="slider-label slider-label-right">Upgraded &nbsp;&middot;&nbsp; 4K</div>
+      <div class="slider-hint" id="ht2">&#8596;&nbsp; Drag to compare</div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+  function makeSlider(wrapId, revealId, handleId, hintId) {
+    var wrap   = document.getElementById(wrapId);
+    var reveal = document.getElementById(revealId);
+    var handle = document.getElementById(handleId);
+    var hint   = document.getElementById(hintId);
+    var isDragging = false;
+    var animDone   = false;
+    var animFrame  = null;
+    var cachedRect = null;
+
+    function setPosition(pct) {
+      pct = Math.min(Math.max(pct, 0.02), 0.98);
+      reveal.style.clipPath = "inset(0 " + ((1 - pct) * 100) + "% 0 0)";
+      handle.style.left = (pct * 100) + "%";
+    }
+
+    function easeInOut(t) { return t < 0.5 ? 2*t*t : -1+(4-2*t)*t; }
+
+    function animateTo(from, to, dur, cb) {
+      var start = null;
+      function step(ts) {
+        if (!start) start = ts;
+        var p = Math.min((ts - start) / dur, 1);
+        setPosition(from + (to - from) * easeInOut(p));
+        if (p < 1 && !isDragging) { animFrame = requestAnimationFrame(step); }
+        else if (!isDragging && cb) { cb(); }
+      }
+      animFrame = requestAnimationFrame(step);
+    }
+
+    function fadeHint() {
+      if (!hint) return;
+      hint.style.transition = "opacity 0.8s ease";
+      hint.style.opacity = "0";
+      setTimeout(function() { hint.style.display = "none"; }, 800);
+    }
+
+    function runDemo() {
+      if (animDone || isDragging) return;
+      setPosition(0.5);
+      setTimeout(function() {
+        if (isDragging) return;
+        animateTo(0.5, 0.15, 2000, function() {
+          if (isDragging) return;
+          setTimeout(function() {
+            if (isDragging) return;
+            animateTo(0.15, 0.85, 2500, function() {
+              if (isDragging) return;
+              setTimeout(function() {
+                if (isDragging) return;
+                animateTo(0.85, 0.5, 1200, function() {
+                  animDone = true;
+                  fadeHint();
+                });
+              }, 400);
+            });
+          }, 500);
+        });
+      }, 600);
+    }
+
+    function getPct(clientX) {
+      if (!cachedRect) cachedRect = wrap.getBoundingClientRect();
+      return Math.min(Math.max((clientX - cachedRect.left) / cachedRect.width, 0.02), 0.98);
+    }
+
+    function startDrag(clientX) {
+      isDragging = true;
+      animDone   = true;
+      cachedRect = wrap.getBoundingClientRect();
+      if (animFrame) cancelAnimationFrame(animFrame);
+      if (hint) { hint.style.opacity = "0"; setTimeout(function() { hint.style.display = "none"; }, 300); }
+      setPosition(getPct(clientX));
+    }
+
+    wrap.addEventListener("mousedown", function(e) { startDrag(e.clientX); e.preventDefault(); });
+    window.addEventListener("mousemove", function(e) { if (isDragging) setPosition(getPct(e.clientX)); });
+    window.addEventListener("mouseup",   function()  { isDragging = false; cachedRect = null; });
+
+    wrap.addEventListener("touchstart", function(e) { startDrag(e.touches[0].clientX); e.preventDefault(); }, { passive: false });
+    window.addEventListener("touchmove", function(e) { if (isDragging) setPosition(getPct(e.touches[0].clientX)); }, { passive: true });
+    window.addEventListener("touchend",  function()  { isDragging = false; cachedRect = null; });
+
+    if ("IntersectionObserver" in window) {
+      var observed = false;
+      new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting && !observed && !animDone) { observed = true; runDemo(); }
+        });
+      }, { threshold: 0.85 }).observe(wrap);
+    } else { runDemo(); }
+
+    setPosition(0.5);
+  }
+
+  makeSlider("sw1","rv1","sh1","ht1");
+  makeSlider("sw2","rv2","sh2","ht2");
+</script>
+</body>
+</html>
